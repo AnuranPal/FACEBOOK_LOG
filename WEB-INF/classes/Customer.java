@@ -17,6 +17,12 @@ public class Customer extends HttpServlet
 		String c_mail = request.getParameter("cemail");
 		String c_name = request.getParameter("cname");
 		String c_addr = request.getParameter("cadd");
+		out.println("<body background=Darkseagreen>");
+                out.println("<h2>Email- "+c_mail);
+                out.println("<br>Name- "+c_name); 
+                out.println("<br>Address- "+c_addr);  
+		        out.println("<h2>");
+		
 		
 		try
 		{
@@ -28,7 +34,8 @@ public class Customer extends HttpServlet
 			Statement st = con.createStatement();
 			int i = st.executeUpdate("insert into userinfo values('"+c_mail+"','"+c_name+"','"+c_addr+"')");
 			if(i>0)
-				{response.sendRedirect("start.html");} 
+				{   out.println("<br><h2><center>THANK YOU "+c_name+" FOR LOGIN</center></h2>");
+					out.println("<br/><a href=\"start.html\"><h1><center>Click here to read the Tutorial.</center></h1></a></body>");} 
                                
 			else
 				out.print("Sorry for Error");

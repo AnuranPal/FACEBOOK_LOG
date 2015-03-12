@@ -100,15 +100,13 @@
   }(document, 'script', 'facebook-jssdk'));
    
 
-  // Here we run a very simple test of the Graph API after login is
-  // successful.  See statusChangeCallback() for when this call is made.
-  //<function testAPI() {
-    //console.log('Welcome!  Fetching your information.... ');
-    //FB.api('/me', function(response) {
-     // console.log('Successful login for: ' + response.name);
-      //document.getElementById('status').innerHTML =
-       // 'Thanks for logging in, ' + response.name + '!';
-    //});
+   <function testAPI() {
+  console.log('Welcome!  Fetching your information.... ');
+  FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+     document.getElementById('status').innerHTML =
+      'Thanks for logging in, ' + response.name + '!';
+    });
   }
 </script>
 
@@ -128,11 +126,11 @@
           status: true, xfbml: true
       });
       FB.Event.subscribe('auth.login', function () {
-          window.location = "start.html";
+          window.location = "welcome.html";
       });
 	  //FB.Event.subscribe("auth.logout", function() {window.location = '/logout';});
 	  function newDoc() {
-      window.location.assign("start.html");
+      window.location.assign("welcome.html");
     } 
 	  function fbLogoutUser() {
     FB.getLoginStatus(function(response) {
